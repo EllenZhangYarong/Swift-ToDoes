@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		A5ACF9BC24736E6F0049973C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACF9BB24736E6F0049973C /* AppDelegate.swift */; };
 		A5ACF9BE24736E6F0049973C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACF9BD24736E6F0049973C /* SceneDelegate.swift */; };
-		A5ACF9C024736E6F0049973C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACF9BF24736E6F0049973C /* ViewController.swift */; };
 		A5ACF9C324736E6F0049973C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5ACF9C124736E6F0049973C /* Main.storyboard */; };
 		A5ACF9C524736E700049973C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A5ACF9C424736E700049973C /* Assets.xcassets */; };
 		A5ACF9C824736E700049973C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A5ACF9C624736E700049973C /* LaunchScreen.storyboard */; };
+		A5ACF9D2247370980049973C /* ToDoesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5ACF9D1247370980049973C /* ToDoesTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A5ACF9B824736E6F0049973C /* ToDoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5ACF9BB24736E6F0049973C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A5ACF9BD24736E6F0049973C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		A5ACF9BF24736E6F0049973C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A5ACF9C224736E6F0049973C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A5ACF9C424736E700049973C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A5ACF9C724736E700049973C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A5ACF9C924736E700049973C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A5ACF9D1247370980049973C /* ToDoesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoesTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +58,11 @@
 			children = (
 				A5ACF9BB24736E6F0049973C /* AppDelegate.swift */,
 				A5ACF9BD24736E6F0049973C /* SceneDelegate.swift */,
-				A5ACF9BF24736E6F0049973C /* ViewController.swift */,
 				A5ACF9C124736E6F0049973C /* Main.storyboard */,
 				A5ACF9C424736E700049973C /* Assets.xcassets */,
 				A5ACF9C624736E700049973C /* LaunchScreen.storyboard */,
 				A5ACF9C924736E700049973C /* Info.plist */,
+				A5ACF9D1247370980049973C /* ToDoesTableViewController.swift */,
 			);
 			path = ToDoes;
 			sourceTree = "<group>";
@@ -138,7 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A5ACF9C024736E6F0049973C /* ViewController.swift in Sources */,
+				A5ACF9D2247370980049973C /* ToDoesTableViewController.swift in Sources */,
 				A5ACF9BC24736E6F0049973C /* AppDelegate.swift in Sources */,
 				A5ACF9BE24736E6F0049973C /* SceneDelegate.swift in Sources */,
 			);
@@ -293,7 +293,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ellenzhang.ToDoes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -310,7 +310,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ellenzhang.ToDoes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
