@@ -56,4 +56,24 @@ class ToDoesTableViewController: UITableViewController {
         print(toDoesArray[indexPath.row])
     }
 
+    @IBAction func addTodoItem(_ sender: Any) {
+        
+        var newItemTextField = UITextField()
+        
+        let alert = UIAlertController(title: "Add New Item", message: "", preferredStyle: .alert)
+        
+        let alertAction = UIAlertAction(title: "Add Item", style: .default) { (alertAction) in
+            
+            self.toDoesArray.append(newItemTextField.text ?? "new item")
+            self.tableView.reloadData()
+            
+        }
+        alert.addTextField { (alertTextfield) in
+            alertTextfield.placeholder = "Create New Item"
+            newItemTextField = alertTextfield
+        }
+        alert.addAction(alertAction)
+        
+        present(alert, animated: true, completion: nil)
+    }
 }
