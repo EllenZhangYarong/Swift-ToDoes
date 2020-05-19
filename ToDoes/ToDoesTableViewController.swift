@@ -11,15 +11,16 @@ import UIKit
 class ToDoesTableViewController: UITableViewController {
     
     var toDoesArray = ["shopping", "laundry", "assist math"]
+    let userDefaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if let items = self.userDefaults.array(forKey: "ToDoListArray") as? [String]{
+            toDoesArray = items
+        }
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
     }
 
     // MARK: - Table view data source
@@ -65,6 +66,9 @@ class ToDoesTableViewController: UITableViewController {
         let alertAction = UIAlertAction(title: "Add Item", style: .default) { (alertAction) in
             
             self.toDoesArray.append(newItemTextField.text ?? "new item")
+            
+            self.userDefaults.set(self.toDoesArray, forKey: "ToDoListArray")
+
             self.tableView.reloadData()
             
         }
