@@ -7,15 +7,21 @@
 //
 
 import UIKit
+import CoreData
 
 class ToDoesTableViewController: UITableViewController {
     
 //    var toDoesArray = ["shopping", "laundry", "assist math"]
+    
 //    let userDefaults = UserDefaults.standard
     
-    var toDoesArray = [ToDoItemModel]()
+//    var toDoesArray = [ToDoItemModel]()
     
-    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("items.plist")
+    var toDoesArray = [Item]()
+    
+//    let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("items.plist")
+    
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -98,25 +104,30 @@ class ToDoesTableViewController: UITableViewController {
 //
 //            self.userDefaults.set(self.toDoesArray, forKey: "ToDoListArray")
 
-            let newItem = ToDoItemModel()
+//            let newItem = ToDoItemModel()
+            let newItem = Item(context: self.context)
             if newItemTextField.text != ""{
                 newItem.title = newItemTextField.text!
+                newItem.done = false
                 self.toDoesArray.append(newItem)
             }
             
             self.saveItems()
-            self.tableView.reloadData()
             
         }
+        
         alert.addTextField { (alertTextfield) in
             alertTextfield.placeholder = "Create New Item"
             newItemTextField = alertTextfield
         }
+        
         alert.addAction(alertAction)
         
         present(alert, animated: true, completion: nil)
     }
     
+/* load and save using plist
+     
     func loadItems() {
         if let data = try? Data(contentsOf: dataFilePath!){
             let decoder = PropertyListDecoder()
@@ -136,5 +147,24 @@ class ToDoesTableViewController: UITableViewController {
         }catch{
             print("error to encode data \(error)")
         }
+    }
+*/
+    func saveItems(){
+        do{
+            try context.save()
+        }catch{
+            print("Error saving context \(error)")
+        }
+        self.tableView.reloadData()
+    }
+    
+    func loadItems(){
+        let request: NSFetchRequest<Item> = Item.fetchRequest()
+        do{
+            toDoesArray = try context.fetch(request)
+        }catch{
+            print("Error fetching data from context \(error)")
+        }
+        
     }
 }
